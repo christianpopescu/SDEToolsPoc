@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ToolsFacade.Office
 {
     public class OfficeInterop
     {
-        public static void releaseObject(object obj)
+        public static void ReleaseObject(object obj)
         {
             try
             {
@@ -17,6 +13,7 @@ namespace ToolsFacade.Office
             }
             catch (Exception ex)
             {
+                // todo : log exception
                 obj = null;
             }
             finally

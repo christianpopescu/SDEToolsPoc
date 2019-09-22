@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -9,6 +11,7 @@ namespace ToolsFacade.ExcelFacade
 {
     class PocExcel
     {
+        static readonly Excel.DocEvents_DeactivateEventHandler dh =() => Console.WriteLine("Desactivate");
         static void PocOpenDelimitedInExcel()
         {
             Excel.Application xlApp;
@@ -84,6 +87,41 @@ namespace ToolsFacade.ExcelFacade
 
 
         }
+
+        static void BindToRunningProcessesExcel()
+        {
+            // Get the current process.
+            Process currentProcess = Process.GetCurrentProcess();
+ 
+            // Get all processes running on the local computer.
+            Process[] localAll = Process.GetProcessesByName("EXCEL");
+            Excel.Application application;
+            if (localAll.Length > 0) application = Marshal.GetActiveObject("Excel.Application") as Excel.Application;
+            else application = new Excel.Application();
+ 
+            if (application.Workbooks.Count == 0) Console.WriteLine("No workbook opened!");
+            else
+            {
+                Excel.Workbook workBookPmo = null;
+                foreach (Excel.Workbook w in application.Workbooks)
+                {
+                    Console.WriteLine(w.FullName + "  |  " + w.Name);
+                    if (w.Name == "PMO_Main.xlsx")
+                    {
+                        Console.WriteLine(w.Worksheets.Count);
+                        workBookPmo = w;
+                    }
+                }
+                if (workBookPmo != null)
+                {
+                    Console.WriteLine(((Excel.Worksheet)workBookPmo.ActiveSheet).Name);
+                }
+                ((Excel.Worksheet)workBookPmo.ActiveSheet).Deactivate += dh;
+ 
+            }
+            Console.ReadKey();
+        }
+
 
         private static void releaseObject(object obj)
         {
