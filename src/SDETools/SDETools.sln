@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDEConsole", "SDEConsole\SD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolsFacade", "ToolsFacade\ToolsFacade.csproj", "{AE923A5A-9FD7-4FF7-8016-573D487194BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractDataTypes", "AbstractDataTypes\AbstractDataTypes.csproj", "{66325223-A6A2-4D8E-8111-C8D90CFE969B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractDataTypesDev", "AbstractDataTypesDev\AbstractDataTypesDev.csproj", "{E8A11772-6F8F-457D-8ABC-AB4B83894987}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{AE923A5A-9FD7-4FF7-8016-573D487194BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE923A5A-9FD7-4FF7-8016-573D487194BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE923A5A-9FD7-4FF7-8016-573D487194BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66325223-A6A2-4D8E-8111-C8D90CFE969B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66325223-A6A2-4D8E-8111-C8D90CFE969B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66325223-A6A2-4D8E-8111-C8D90CFE969B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66325223-A6A2-4D8E-8111-C8D90CFE969B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A11772-6F8F-457D-8ABC-AB4B83894987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A11772-6F8F-457D-8ABC-AB4B83894987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A11772-6F8F-457D-8ABC-AB4B83894987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A11772-6F8F-457D-8ABC-AB4B83894987}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
