@@ -30,10 +30,10 @@ namespace AbstractDataTypesDev
 
             void TestListOfStrings()
             {
-                ListOfStrings<List<StringElement>> lst = new ListOfStrings<List<StringElement>>(new List<StringElement> {"alpha", "beta", "gamma"});
+                RowOfStringsElements<List<StringElement>> lst = new RowOfStringsElements<List<StringElement>>(new List<StringElement> {"alpha", "beta", "gamma"});
 
                 IReadOnlyList< StringElement > aList = lst.GetList();
-                foreach (var se in aList) Console.WriteLine(se);
+                foreach (var se in aList) Console.WriteLine(se.Value);
                 
             }
         }
