@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace AbstractDataTypes.BasicTypes
 {
-    public class ListOfStrings<T>  where T : IList<StringElement>
+    public class ListOfStringsElements<T>  where T : IList<StringElement>
     {
         protected IList<StringElement> list;
 
-        public ListOfStrings(T initList)
+        public ListOfStringsElements(T initList)
         {
             list = initList;
         }
         
-        protected ListOfStrings()
+        protected ListOfStringsElements()
         {
             list = new List<StringElement>();
         }
