@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using AbstractDataTypes.BasicTypes;
 namespace AbstractDataTypesDev
@@ -8,6 +9,8 @@ namespace AbstractDataTypesDev
         static void Main(string[] args)
         {
             TestBasicTypes();
+            TestListOfStrings();
+
             Console.ReadKey();
 
             void TestBasicTypes()
@@ -23,6 +26,15 @@ namespace AbstractDataTypesDev
                 Console.WriteLine("{0} {1}", i, st);
 
                 foreach (IElement x in lae) Console.WriteLine(x);
+            }
+
+            void TestListOfStrings()
+            {
+                ListOfStrings<List<StringElement>> lst = new ListOfStrings<List<StringElement>>(new List<StringElement> {"alpha", "beta", "gamma"});
+
+                IReadOnlyList< StringElement > aList = lst.GetList();
+                foreach (var se in aList) Console.WriteLine(se);
+                
             }
         }
     }
