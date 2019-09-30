@@ -10,6 +10,7 @@ namespace AbstractDataTypesDev
         {
             //TestBasicTypes();
             TestListOfStrings();
+            TestTable();
 
             Console.ReadKey();
 
@@ -35,6 +36,12 @@ namespace AbstractDataTypesDev
                 IReadOnlyList< StringElement > aList = lst.GetList();
                 foreach (var se in aList) Console.WriteLine(se.Value);
                 
+            }
+
+            void TestTable()
+            {
+                List<string> hd = new List<string>{"H1", "H2", "H3"};
+                VirtualTableOfString vtof = VirtualTableOfString.DefineTable(hd);
             }
         }
     }

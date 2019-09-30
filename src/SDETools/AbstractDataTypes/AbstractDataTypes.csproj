@@ -46,6 +46,7 @@
     <Compile Include="BasicTypes\RowOfStringsElements.cs" />
     <Compile Include="BasicTypes\StringElement.cs" />
     <Compile Include="BasicTypes\VirtualTableOfString.cs" />
+    <Compile Include="Exceptions\InvalidTableHeader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
