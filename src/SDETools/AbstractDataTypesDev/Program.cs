@@ -8,7 +8,7 @@ namespace AbstractDataTypesDev
     {
         static void Main(string[] args)
         {
-            TestBasicTypes();
+            //TestBasicTypes();
             TestListOfStrings();
 
             Console.ReadKey();
@@ -30,7 +30,7 @@ namespace AbstractDataTypesDev
 
             void TestListOfStrings()
             {
-                RowOfStringsElements<List<StringElement>> lst = new RowOfStringsElements<List<StringElement>>(new List<StringElement> {"alpha", "beta", "gamma"});
+                RowOfStringsElements lst = new RowOfStringsElements(new List<StringElement> {"alpha", "beta", "gamma"});
 
                 IReadOnlyList< StringElement > aList = lst.GetList();
                 foreach (var se in aList) Console.WriteLine(se.Value);

@@ -15,7 +15,7 @@ namespace AbstractDataTypes.BasicTypes
     /// </summary>
     public class VirtualTableOfString
     {
-        public IList<RowOfStringsElements<List<StringElement>>> ListOfRows;
+        public IList<RowOfStringsElements> ListOfRows;
         public int NumberOfColumns;
         public int NumberOfRows;
         public IList<String> Headers;

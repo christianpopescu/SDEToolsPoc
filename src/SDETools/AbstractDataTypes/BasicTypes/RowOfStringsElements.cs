@@ -12,12 +12,12 @@ namespace AbstractDataTypes.BasicTypes
     /// The purpose of this class is to memorize a row of a table. For the moment we'll keep only strings
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class RowOfStringsElements<T>  where T : IList<StringElement>
+    public class RowOfStringsElements 
     {
         protected int NumberOfElements;
         protected IList<StringElement> List;
 
-        public RowOfStringsElements(T initList)
+        public RowOfStringsElements(IList<StringElement> initList)
         {
             List = initList;
             NumberOfElements = initList.Count();
