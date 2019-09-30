@@ -15,10 +15,15 @@ namespace AbstractDataTypes.BasicTypes
         {
             list = initList;
         }
-
-        public ListOfStrings()
+        
+        protected ListOfStrings()
         {
             list = new List<StringElement>();
+        }
+
+        public IReadOnlyList<StringElement> GetList()
+        {
+            return (IReadOnlyList<StringElement>)list;
         }
     }
 }
