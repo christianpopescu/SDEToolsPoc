@@ -42,9 +42,9 @@ namespace AbstractDataTypes.BasicTypes
                 return null;
         }
 
-        // To do : show headers
-        // to do : Add + validate line
-        // to do : compare tables
+        // Todo : show headers
+        // todo : Add + validate line
+        // todo : compare tables
 
     }
 }
