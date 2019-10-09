@@ -1,0 +1,8 @@
+@startuml
+interface IElement
+class AbstractElement< T > 
+class StringElement
+IElement <|-- AbstractElement
+
+
+@enduml
