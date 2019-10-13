@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DiffTools
+﻿namespace DiffTools.ResultDao
 {
     public class DiffResultElement<T>
     { 
-        DiffElement<T> First;
-        DiffElement<T> Second;
+        public DiffElement<T> First {get; set;}
+        public DiffElement<T> Second {get; set;}
     }
 }
