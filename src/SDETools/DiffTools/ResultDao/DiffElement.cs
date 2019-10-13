@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DiffTools
 {
-    class DiffElement<T>
+    public class DiffElement<T>
     {
-        long Index {get; set;}
-        T Value {get; set;}
+        public long Index {get; set;}
+        public T Value {get; set;}
     }
 }
