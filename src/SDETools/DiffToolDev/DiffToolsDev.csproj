@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B073C15E-B46B-4F41-84A0-AF3E5D1B12AE}</ProjectGuid>
+    <ProjectGuid>{9CCAA1D2-5C5C-45ED-9376-50062C5A4514}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SDEConsole</RootNamespace>
-    <AssemblyName>SDEConsole</AssemblyName>
+    <RootNamespace>DiffToolDev</RootNamespace>
+    <AssemblyName>DiffToolDev</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
