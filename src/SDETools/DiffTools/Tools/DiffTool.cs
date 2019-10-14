@@ -16,7 +16,7 @@ namespace DiffTools.Tools
             List<DiffResultElement<T>> diffResults = new List<DiffResultElement<T>>();
             for (int i = 0; i < min; i++)
             {
-                if (!pFirstToCompare.Equals(pSecondToCompare))
+                if (!pFirstToCompare[i].Equals(pSecondToCompare[i]))
                 {
                     diffResults.Add(new DiffResultElement<T>(new DiffElement<T>(i, pFirstToCompare[i]),
                         new DiffElement<T>(i, pSecondToCompare[i])));
