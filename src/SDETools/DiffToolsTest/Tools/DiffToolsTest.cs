@@ -13,7 +13,7 @@ namespace DiffToolsTest.Tools
     public class DiffToolsTest
     {
         [Test]
-        public void CompareForEqualityListOfStrings()
+        public void CompareForEqualityListOfStrings_EqualsList()
         {
             List<string> firstList = new List<string>() {"1", "2"};
             List<string> secondList = new List<string>() {"1", "2"};
