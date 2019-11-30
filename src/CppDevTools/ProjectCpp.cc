@@ -23,13 +23,22 @@ class CppProject {
 using namespace std;
 
 int main() {
-	FILE* stream;
-	int stdout_save{dup(STDOUT_FILENO)};
 	CppProject cppp ("testproject", CppVersion::cpp14);
-	freopen_s(&stream, "makefile.txt","w", stdout);
+	
+	ostream* o = &cout;
+	
+	ofstream myfile ("output.txt");
+	o = &myfile;
+	if (myfile.is_open())
+	{
+		myfile << "This is a line.\n";
+		myfile << "This is another line.\n";
+		(*o) << "Test";
+		myfile.close();
+	}
+  else cout << "Unable to open file";
 	cout << STDIN_FILENO << endl;
 	cout << STDOUT_FILENO << endl;
-	fclose(stdout);
-	stdout =fdopen(STDOUT_FILENO,"w");
+
 	cout << "End of programm " << endl;
 }
