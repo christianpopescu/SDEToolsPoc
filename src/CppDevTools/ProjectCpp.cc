@@ -24,16 +24,27 @@ using namespace std;
 
 int main() {
 	CppProject cppp ("testproject", CppVersion::cpp14);
+	int i =0;
 	
 	ostream* o = &cout;
-	
+	istream* mycin = &cin;
 	ofstream myfile ("output.txt");
+	ifstream myfilein("input.txt");
 	o = &myfile;
+	//(*mycin) >> i;
+	(*o) <<  i << endl;
+	if (myfilein.is_open())
+	{
+		mycin = &myfilein;
+		(*mycin) >> i;
+		myfilein.close();
+	}
 	if (myfile.is_open())
 	{
 		myfile << "This is a line.\n";
 		myfile << "This is another line.\n";
-		(*o) << "Test";
+		(*o) << "Test" << endl;
+		(*o) << i << endl;
 		myfile.close();
 	}
   else cout << "Unable to open file";
