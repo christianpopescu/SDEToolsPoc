@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <io.h>
 
 
 enum class CppVersion {
@@ -22,8 +23,13 @@ class CppProject {
 using namespace std;
 
 int main() {
+	FILE* stream;
+	int stdout_save{dup(STDOUT_FILENO)};
 	CppProject cppp ("testproject", CppVersion::cpp14);
-	freopen("makefile.testproject","w", stdout);
-	
+	freopen_s(&stream, "makefile.txt","w", stdout);
+	cout << STDIN_FILENO << endl;
+	cout << STDOUT_FILENO << endl;
+	fclose(stdout);
+	stdout =fdopen(STDOUT_FILENO,"w");
 	cout << "End of programm " << endl;
 }
