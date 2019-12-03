@@ -34,6 +34,7 @@ int main()
 	 printw("Pi "); addch(ACS_PI); printw("\n");
 	 printw("Not equal "); addch(ACS_NEQUAL); printw("\n");
 	 printw("UK pound sign "); addch(ACS_STERLING); printw("\n");
+	 
 	refresh(); /* Print it on to the real screen */
 	getch(); /* Wait for user input */
 	endwin(); /* End curses mode */
