@@ -10,6 +10,8 @@ std::string ClassElement::getHeaderFileName() {
 std::string ClassElement::getCppFileName() {
   return name + ".cc"; 
 }
-std::string ClassElement::createHeaderFile() const;
+std::string ClassElement::createHeaderFile(){
+  
+}
 std::string ClassElement::createCodeFile() const;
 

@@ -9,4 +9,4 @@ class ClassElement {
   std::string createCodeFile() const;
  private:
   std::string name;
-}
+};
