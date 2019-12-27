@@ -14,8 +14,9 @@ public:
 	TextFileHelper& WriteLine(string p_line);
 	virtual ~TextFileHelper();
  
-	TextFileHelper();
+
 protected:
+    TextFileHelper();
 	std::fstream file;
 	vector<string> fileContent;
 };
