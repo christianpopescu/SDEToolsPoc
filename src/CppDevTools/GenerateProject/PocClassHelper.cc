@@ -48,7 +48,7 @@ class ClassHelper{
 };
 int main() {
 
-               ClassHelper ch ("myclass");
-                ch.protectionH = "PPPPP_H";
+               ClassHelper ch ("TextFileHelper");
+                ch.protectionH = "TEXT_FILE_HELPER_H";
                 ch.generateFiles();
 }
