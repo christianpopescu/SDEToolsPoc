@@ -2,12 +2,12 @@ GTEST_CFLAGS = `pkg-config --cflags gtest_main`
 GTEST_LIBS = `pkg-config --libs gtest_main`
 TEST_DIR=test/
 PROJECT_DIR=project/
-headers:=$(PROJECT_DIR)1.1.IsUnique.h $(PROJECT_DIR)P1.2.CheckPermutation.h $(PROJECT_DIR)P1.3.Urlify.h
-sources:=$(PROJECT_DIR)1.1.IsUnique.cc $(PROJECT_DIR)P1.2.CheckPermutation.cc $(PROJECT_DIR)P1.3.Urlify.cc
-objects:=1.1.IsUnique.o P1.2.CheckPermutation.o P1.3.Urlify.o
-mainexe=main
-mainobj=main.o
-mainsrc=main.cc
+headers:=$(PROJECT_DIR)TextFileHelper.h 
+sources:=$(PROJECT_DIR)TextFileHelper.cc 
+objects:=TextFileHelper.o 
+mainexe=PocClassHelper.exe
+mainobj=PocClassHelper.o
+mainsrc=PocClassHelper.cc
 
 .PHONY: clean tests all
 
@@ -17,7 +17,7 @@ run : main
 main : $(mainobj) $(objects)
 	g++ -std=c++17 $(mainobj) $(objects) -o $(mainexe)
 
-$(mainobj) : main.cc  $(sources) $(headers)
+$(mainobj) : $(mainsrc)  $(sources) $(headers)
 	g++ -std=c++17 -c $(mainsrc) $(sources)
 clean :
 	rm -f *.exe
