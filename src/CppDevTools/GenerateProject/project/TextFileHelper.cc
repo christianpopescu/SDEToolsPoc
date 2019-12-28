@@ -11,7 +11,7 @@ std::unique_ptr<T> WrapUnique(T* ptr) {
 // WrapUnique used to create unique pointer with protected constructor
 unique_ptr<TextFileHelper> TextFileHelper::createTextFileHelper(string fileName){
 	unique_ptr<TextFileHelper> tfh = WrapUnique(new TextFileHelper());
-	tfh->file.open(fileName.c_str());
+	tfh->file.open(fileName.c_str(), std::ios::out);
 	return tfh;
 }
 
