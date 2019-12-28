@@ -12,8 +12,8 @@ class TextFileHelper{
 public:
 	static unique_ptr<TextFileHelper> createTextFileHelper(string fileName);
 	TextFileHelper& WriteLine(string p_line);
+	TextFileHelper& SaveFile();
 	virtual ~TextFileHelper();
- 
 
 protected:
     TextFileHelper();

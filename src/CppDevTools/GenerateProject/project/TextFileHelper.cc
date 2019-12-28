@@ -19,7 +19,11 @@ TextFileHelper& TextFileHelper::WriteLine(string p_line){
 	fileContent.push_back(p_line);
 	return *this;
 }
-
+TextFileHelper& TextFileHelper::SaveFile(){
+	for (auto s : fileContent)
+		file << s << "\n";
+	return *this;
+}
 TextFileHelper::~TextFileHelper(){
 	if (file.is_open()) file.close();
 }
