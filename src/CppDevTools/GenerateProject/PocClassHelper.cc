@@ -17,53 +17,41 @@ class ClassHelper{
                 std::string class_name;
                 std::string protectionH;
                 
-                void generateFiles() {
+                void generateAndSaveFiles() {
                                generateH();
+							   saveH();
                                generateCpp();
+							   saveCpp();
                 }
 
     void generateCpp(){
-                               std::fstream cppFile;
-                               cppFile.open((class_name + ".cpp").c_str(), std::ios::out);
-                               cppFile << "#include \"" << class_name + ".h\"";
-                               cppFile.close();
+                    (*pfileCpp).WriteLine("#include \"" + class_name + ".h\"");
                 }                              
-                void generateH() {
-					
-					
-//                               std::fstream hFile;
-//                               hFile.open((class_name + ".h").c_str(), std::ios::out);
-                               if (protectionH.length() > 0){
-//                                               hFile << "#ifndef " + protectionH << "\n";           
-//                                               hFile << "#define " + protectionH << "\n";  
-									(*pfileH).WriteLine("#ifndef " + protectionH ).											   
-											  WriteLine("#define " + protectionH );
-                               }
-                               (*pfileH).WriteLine("#include <iostream>" ).WriteLine("")
-								   .WriteLine("class " + class_name + "{")
-								   .WriteLine("")
-								   .WriteLine("};");
-							           
-/*                               hFile << "#include <iostream>" << "\n";
-                               hFile << "\n";
-                               hFile << "class " + class_name + "{" + "\n";
-                               hFile << "\n";
-                               hFile << "};" << "\n";
-  */                             
-                               if (protectionH.length() > 0){
-//                                               hFile << "#endif //" + protectionH << "\n";    
-										 (*pfileH).WriteLine("#endif //" + protectionH  );
-                               }
-
- //                              hFile.close();
-							   (*pfileH).SaveFile();
-                }
-                
+	void generateH() {
+				   if (protectionH.length() > 0){
+						(*pfileH).WriteLine("#ifndef " + protectionH ).											   
+								  WriteLine("#define " + protectionH );
+				   }
+				   (*pfileH).WriteLine("#include <iostream>" ).WriteLine("")
+					   .WriteLine("class " + class_name + "{")
+					   .WriteLine("")
+					   .WriteLine("};");
+				   if (protectionH.length() > 0){
+							 (*pfileH).WriteLine("#endif //" + protectionH  );
+				   }
+				   
+	}
+	 void saveCpp() {
+		 (*pfileCpp).SaveFile();
+	 }               
+	 void saveH() {
+		 (*pfileH).SaveFile();
+	 }               
                 
 };
 int main() {
 
                ClassHelper ch ("TextFileHelper");
                 ch.protectionH = "TEXT_FILE_HELPER_H";
-                ch.generateFiles();
+                ch.generateAndSaveFiles();
 }
