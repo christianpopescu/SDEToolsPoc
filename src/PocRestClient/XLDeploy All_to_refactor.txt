@@ -1,0 +1,178 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+
+namespace XLDeployNamespace
+{
+    [Serializable]
+    [DataContract, KnownType(typeof(Ci))]
+    [XmlRoot("udm.Application")]
+
+    public class Application: Ci
+    {
+
+        [DataMember]
+        [XmlElement("lastVersion")]
+        public string lastVersion { get; set; }
+
+
+    }
+}
+?using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+
+namespace XLDeployNamespace
+{
+    [Serializable]
+    [DataContract]
+    [KnownType(typeof(Application))]
+    public class Ci
+    {
+        [DataMember(Order =2)]
+        [XmlAttribute(AttributeName = "id")]
+        public string id { get; set; }
+
+        [DataMember(Name="$token")]
+        [XmlAttribute("token")]
+//        [XmlAttribute(AttributeName = "token")]
+        public string token { get; set; }
+
+        [DataMember]
+        [XmlAttribute(AttributeName = "last-modified-at")]
+        public string lastModifiedAt { get; set; }
+
+        [DataMember]
+        [XmlAttribute(AttributeName = "last-modified-by")]
+        public string lastModifiedBy { get; set; }
+
+        [DataMember(Name = "createdAt")]
+        [XmlAttribute(AttributeName = "created-at")]
+        public string createdAt { get; set; }
+
+        [DataMember(Name = "$createdBy")]
+        [XmlAttribute(AttributeName = "created-by")]
+        public string createdBy { get; set; }
+    }
+}
+?using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Runtime.Serialization;
+
+namespace XLDeployNamespace
+{
+    [DataContract]
+    public class CiListElement
+    {
+        [DataMember(Name = "type",Order = 2)]
+        [XmlAttribute (AttributeName ="type")]
+        public string type;
+        [DataMember(Name = "ref", Order = 1)]
+        [XmlAttribute(AttributeName = "ref")]
+        public string reference;
+    }
+}
+?using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Runtime.Serialization;
+
+namespace XLDeployNamespace
+{
+    [Serializable]
+    [DataContract]
+    [XmlRoot("udm.Dictionary")]
+
+    public class Dictionary:Ci
+    {
+        [DataMember]
+        [XmlElement(ElementName = "entries")]
+        public ListOfDictionaryEntries entries { get; set; }
+    }
+}
+?using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Runtime.Serialization;
+
+namespace XLDeployNamespace
+{
+    [Serializable]
+    [DataContract, KnownType(typeof(Ci))]
+    [XmlRoot("core.Directory")]
+    public class Directory : Ci
+    {
+
+    }
+}
+?using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Runtime.Serialization;
+
+namespace XLDeployNamespace
+{
+    [Serializable]
+    [DataContract]
+    [XmlRoot("list")]
+
+    public class ListOfCi
+    {
+        [DataMember]
+        [XmlElement("ci")]
+        public List<CiListElement> lstCi = new List<CiListElement>();
+    }
+}
+?using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Runtime.Serialization;
+
+namespace XLDeployNamespace
+{
+    [Serializable]
+    [DataContract]
+    public class ListOfDictionaryEntries
+    {
+        [XmlElement(ElementName = "entry")]
+        public List<Entry> listOfEntries = new List<Entry>();
+    }
+  
+    [Serializable]
+    [DataContract]
+    public class Entry
+    {
+        [XmlText]
+        public string value { get; set; }
+
+        [XmlAttribute("key")]
+        public string key { get; set; }
+
+    }
+}
