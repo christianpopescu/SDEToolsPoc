@@ -15,16 +15,15 @@ namespace ToolsFacade.Office
         
         private static Excel.Application _excelApplication;
 
-        static MsExcel()
-        {
-            TypeName = "Excel.Application";
-            ProcessName = "EXCEL";
-        }
-
-
+        private static readonly string _typeName = "Excel.Application";
+        private static readonly string _processName = "EXCEL";
         private MsExcel()
         {
+            TypeName = _typeName;
+            ProcessName = _processName;
         }
+
+
 
         public static MsExcel GetInstance()
         {
@@ -48,9 +47,9 @@ namespace ToolsFacade.Office
             Process currentProcess = Process.GetCurrentProcess();
  
             // Get all processes running on the local computer.
-            Process[] localAll = Process.GetProcessesByName(ProcessName);
+            Process[] localAll = Process.GetProcessesByName(_processName);
             Excel.Application application;
-            if (localAll.Length > 0) application = Marshal.GetActiveObject(TypeName) as Excel.Application;
+            if (localAll.Length > 0) application = Marshal.GetActiveObject(_typeName) as Excel.Application;
             else application = new Excel.Application();
 
             return application;
