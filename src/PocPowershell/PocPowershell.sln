@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocPowershell", "PocPowershell\PocPowershell.csproj", "{48AF0BFF-5053-4D59-AD1A-CB5B6C85683D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48AF0BFF-5053-4D59-AD1A-CB5B6C85683D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48AF0BFF-5053-4D59-AD1A-CB5B6C85683D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48AF0BFF-5053-4D59-AD1A-CB5B6C85683D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48AF0BFF-5053-4D59-AD1A-CB5B6C85683D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1FA454E0-7976-4369-888C-3AE7C44E7396}
+	EndGlobalSection
+EndGlobal
