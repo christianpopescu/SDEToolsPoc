@@ -56,5 +56,22 @@ namespace PocExcel.ExcelTools
         {
             MsExcel.GetInstance()._excelApplication.Workbooks.Open(Name);
         }
+
+        public List<Workbook> GetOpenWorkbooks()
+        {
+            var result = new List<Workbook>();
+            Console.WriteLine(MsExcel.GetInstance()._excelApplication.Workbooks.Count);
+            var it = GetInstance()._excelApplication.Workbooks.GetEnumerator();
+            {
+                while (it.MoveNext())
+                    result.Add(new Workbook((Excel.Workbook)it.Current));
+            }
+            //for (int i = 0; i < MsExcel.GetInstance()._excelApplication.Workbooks.Count; i++)
+            //{
+            //    Console.WriteLine(MsExcel.GetInstance()._excelApplication.Workbooks.Count);
+            //    result.Add(new Workbook(MsExcel.GetInstance()._excelApplication.Workbooks.Item[i]));
+            //}
+            return result;
+        }
     }
 }

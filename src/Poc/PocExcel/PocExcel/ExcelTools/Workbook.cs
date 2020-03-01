@@ -10,11 +10,11 @@ namespace PocExcel.ExcelTools
     public class Workbook
     {
         protected Excel.Workbook _workbook;
-        Workbook(Excel.Workbook aWorkbook)
+        public Workbook(Excel.Workbook aWorkbook)
         {
             _workbook = aWorkbook;
         }
-
+        
         public string FullName { get { return (_workbook?.FullName?? ""); } }
     }
 }
