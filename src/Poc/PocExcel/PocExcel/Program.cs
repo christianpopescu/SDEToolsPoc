@@ -11,6 +11,7 @@ namespace PocExcel
     {
         static void Main(string[] args)
         {
+            MsExcel.GetInstance().Open(@"E:\Temp\ToDelete\SecondWorkbook.xlsx");
             List<Workbook> lw = MsExcel.GetInstance().GetOpenWorkbooks();
             foreach(var v in lw)
             {

@@ -66,11 +66,6 @@ namespace PocExcel.ExcelTools
                 while (it.MoveNext())
                     result.Add(new Workbook((Excel.Workbook)it.Current));
             }
-            //for (int i = 0; i < MsExcel.GetInstance()._excelApplication.Workbooks.Count; i++)
-            //{
-            //    Console.WriteLine(MsExcel.GetInstance()._excelApplication.Workbooks.Count);
-            //    result.Add(new Workbook(MsExcel.GetInstance()._excelApplication.Workbooks.Item[i]));
-            //}
             return result;
         }
     }
