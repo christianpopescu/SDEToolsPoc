@@ -14,7 +14,7 @@ namespace PocExcel.ExcelTools
     {
         private static MsExcel _instance;
 
-        private static Excel.Application _excelApplication;
+        private Excel.Application _excelApplication;
 
         private static readonly string _typeName = "Excel.Application";
         private static readonly string _processName = "EXCEL";
@@ -28,7 +28,7 @@ namespace PocExcel.ExcelTools
             _instance = new MsExcel();
             try
             {
-                _excelApplication = BindToRunningProcessOrNew();
+                _instance._excelApplication = BindToRunningProcessOrNew();
             }
             catch (Exception ex)
             {
@@ -50,6 +50,11 @@ namespace PocExcel.ExcelTools
             else application = new Excel.Application();
 
             return application;
+        }
+
+        public void Open(String Name)
+        {
+            MsExcel.GetInstance()._excelApplication.Workbooks.Open(Name);
         }
     }
 }
