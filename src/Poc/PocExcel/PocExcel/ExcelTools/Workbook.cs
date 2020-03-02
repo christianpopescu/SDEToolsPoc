@@ -16,5 +16,7 @@ namespace PocExcel.ExcelTools
         }
         
         public string FullName { get { return (_workbook?.FullName?? ""); } }
+
+        public string Name { get { return (_workbook?.Name ?? ""); } }
     }
 }
