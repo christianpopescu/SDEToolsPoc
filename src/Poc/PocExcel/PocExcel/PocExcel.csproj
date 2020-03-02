@@ -49,6 +49,7 @@
     <Compile Include="ExcelTools\MsExcel.cs" />
     <Compile Include="ExcelTools\OfficeInterops.cs" />
     <Compile Include="ExcelTools\Workbook.cs" />
+    <Compile Include="ExcelTools\Worksheet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

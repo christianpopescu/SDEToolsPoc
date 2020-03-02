@@ -18,5 +18,18 @@ namespace PocExcel.ExcelTools
         public string FullName { get { return (_workbook?.FullName?? ""); } }
 
         public string Name { get { return (_workbook?.Name ?? ""); } }
+
+        public List<Worksheet> WorksheetList
+        {
+            get
+            {
+                var result = new List<Worksheet> ();
+                foreach (var ws in _workbook.Worksheets)
+                {
+                    result.Add(new Worksheet((Excel.Worksheet)ws));
+                }
+                return result;
+            }
+        }
     }
 }
