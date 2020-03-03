@@ -17,5 +17,10 @@ namespace PocExcel.ExcelTools
         }
 
         public string Name { get { return (_worksheet?.Name ?? ""); } }
+
+        public string GetCellValue(int row, int column)
+        {
+            return _worksheet.Cells[1, 1].Value.ToString();
+        }
     }
 }
