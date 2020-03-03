@@ -26,5 +26,10 @@ namespace PocExcel.ExcelTools
         {
             return (_worksheet.Cells[row, column]?.Value ?? "").ToString();
         }
+
+        public void SetCellValue(int row, int column, string val)
+        {
+            _worksheet.Cells[row, column].Value = val ;
+        }
     }
 }

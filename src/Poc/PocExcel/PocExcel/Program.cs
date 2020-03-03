@@ -26,6 +26,8 @@ namespace PocExcel
                     for (int r = 1; r < 5; r++)
                         for (int c = 1; c < 4; c++)
                             Console.WriteLine("    " + ws.GetCellValue(r, c));
+                    ws.SetCellValue(10, 10, "Test");
+
                 }
             }
             Console.ReadKey();
