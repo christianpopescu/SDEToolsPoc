@@ -20,7 +20,7 @@ namespace PocExcel.ExcelTools
 
         public string GetCellValue(int row, int column)
         {
-            return _worksheet.Cells[1, 1].Value.ToString();
+            return (_worksheet.Cells[row, column]?.Value ?? "").ToString();
         }
     }
 }

@@ -20,7 +20,9 @@ namespace PocExcel
                 foreach(var ws in l)
                 {
                     Console.WriteLine("  " + ws.Name);
-                    Console.WriteLine("    " + ws.GetCellValue(1, 1));
+                    for (int r = 1; r < 5; r++)
+                        for (int c = 1; c < 4; c++)
+                            Console.WriteLine("    " + ws.GetCellValue(r, c));
                 }
             }
             Console.ReadKey();
