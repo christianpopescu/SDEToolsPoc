@@ -18,6 +18,10 @@ namespace PocExcel.ExcelTools
 
         public string Name { get { return (_worksheet?.Name ?? ""); } }
 
+        public int RowsCount { get { return _worksheet.Cells.Rows.Count; } }
+
+        public int ColumnsCount { get { return _worksheet.Cells.Columns.Count; } }
+
         public string GetCellValue(int row, int column)
         {
             return (_worksheet.Cells[row, column]?.Value ?? "").ToString();
