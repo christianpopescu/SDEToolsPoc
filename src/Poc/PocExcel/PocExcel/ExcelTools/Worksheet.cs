@@ -31,5 +31,17 @@ namespace PocExcel.ExcelTools
         {
             _worksheet.Cells[row, column].Value = val ;
         }
+
+        public  List<List<string>> GetTable(int top, int left, int bottom, int right)
+        {
+            var result = new List<List<string>>();
+            for (int r = top; r<=bottom; r++) 
+            {
+                var row = new List<string>();
+                for (int c = left; c <= right; c++) row.Add((_worksheet.Cells[r, c]?.Value ?? "").ToString());
+                result.Add(row);
+            }
+            return result;
+        }
     }
 }
