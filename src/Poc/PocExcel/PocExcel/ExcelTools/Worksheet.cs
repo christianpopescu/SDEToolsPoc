@@ -55,5 +55,17 @@ namespace PocExcel.ExcelTools
             }
             return result;
         }
+
+        public List<List<dynamic>> GetTableDynamic(int top, int left, int bottom, int right)
+        {
+            var result = new List<List<dynamic>>();
+            for (int r = top; r <= bottom; r++)
+            {
+                var row = new List<dynamic>();
+                for (int c = left; c <= right; c++) row.Add((_worksheet.Cells[r, c].Value));
+                result.Add(row);
+            }
+            return result;
+        }
     }
 }

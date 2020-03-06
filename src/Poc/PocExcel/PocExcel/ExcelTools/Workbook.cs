@@ -19,6 +19,11 @@ namespace PocExcel.ExcelTools
 
         public string Name { get { return (_workbook?.Name ?? ""); } }
 
+        public void Close()
+        {
+            _workbook.Close();
+        }
+
         public List<Worksheet> WorksheetList
         {
             get

@@ -11,7 +11,7 @@ namespace PocExcel
     {
         static void Main(string[] args)
         {
-            MsExcel.GetInstance().Open(@"E:\Temp\ToDelete\SecondWorkbook.xlsx");
+            //MsExcel.GetInstance().Open(@"E:\Temp\ToDelete\FirstWorbook.xlsx");
             List<Workbook> lw = MsExcel.GetInstance().GetOpenWorkbooks();
             foreach(var w in lw)
             {
@@ -35,7 +35,22 @@ namespace PocExcel
                             Console.Write(col + " | ");
                         Console.WriteLine();
                     }
+
+                    List<List<dynamic>> lld = ws.GetTableDynamic(1, 1, 5, 2);
+                    foreach (var row in lld)
+                    {
+                        foreach (var col in row)
+                        {
+                            dynamic d = col;
+                            if (d == null)
+                                Console.Write("null" + " | ");
+                            else
+                                Console.Write(d.GetType() + " | ");
+                        }
+                        Console.WriteLine();
+                    }
                 }
+                w.Close();
             }
             Console.ReadKey();
         }
