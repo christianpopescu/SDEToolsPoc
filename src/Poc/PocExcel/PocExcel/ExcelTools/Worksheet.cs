@@ -43,5 +43,17 @@ namespace PocExcel.ExcelTools
             }
             return result;
         }
+
+        public List<List<string>> GetTableType(int top, int left, int bottom, int right)
+        {
+            var result = new List<List<string>>();
+            for (int r = top; r <= bottom; r++)
+            {
+                var row = new List<string>();
+                for (int c = left; c <= right; c++) row.Add((_worksheet.Cells[r, c].Value?.GetType().ToString() ?? ""));
+                result.Add(row);
+            }
+            return result;
+        }
     }
 }

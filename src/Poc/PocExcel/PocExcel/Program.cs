@@ -27,8 +27,9 @@ namespace PocExcel
                         for (int c = 1; c < 4; c++)
                             Console.WriteLine("    " + ws.GetCellValue(r, c));
                     ws.SetCellValue(10, 10, "Test");
-                    List<List<string>> lls = ws.GetTable(1, 1, 4, 2);
-                    foreach(var row in lls)
+                    //List<List<string>> lls = ws.GetTable(1, 1, 4, 2);
+                    List<List<string>> lls = ws.GetTableType(1, 1, 5, 2);
+                    foreach (var row in lls)
                     {
                         foreach (var col in row)
                             Console.Write(col + " | ");
