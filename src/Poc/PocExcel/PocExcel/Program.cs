@@ -11,7 +11,7 @@ namespace PocExcel
     {
         static void Main(string[] args)
         {
-            //MsExcel.GetInstance().Open(@"E:\Temp\ToDelete\FirstWorbook.xlsx");
+            MsExcel.GetInstance().Open(@"E:\Temp\ToDelete\FirstWorbook.xlsx");
             List<Workbook> lw = MsExcel.GetInstance().GetOpenWorkbooks();
             foreach(var w in lw)
             {
@@ -23,8 +23,8 @@ namespace PocExcel
                     Console.WriteLine("   Rows = " + ws.RowsCount);
                     Console.WriteLine("   Columns = " + ws.RowsCount);
 
-                    for (int r = 1; r < 5; r++)
-                        for (int c = 1; c < 4; c++)
+                    for (int r = 1; r <= 5; r++)
+                        for (int c = 1; c <= 4; c++)
                             Console.WriteLine("    " + ws.GetCellValue(r, c));
                     ws.SetCellValue(10, 10, "Test");
                     //List<List<string>> lls = ws.GetTable(1, 1, 4, 2);
