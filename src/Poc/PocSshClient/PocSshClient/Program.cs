@@ -23,9 +23,7 @@ namespace PocSshClient
             SshClient sshclient = new SshClient("server", "user", "password");
             sshclient.Connect();
             SshCommand sc = sshclient.CreateCommand("cd ..");
-            ///data/current/config
             sc.Execute();
-            //sc = sshclient.CreateCommand("ls -al");
             sc = sshclient.CreateCommand("ls -al /data/current/config");
             sc.Execute();
             string answer = sc.Result;
