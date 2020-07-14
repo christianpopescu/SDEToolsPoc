@@ -263,3 +263,5 @@ __pycache__/
 
 # MSYS2/MINGW
 *.O
+
+**/*.exe
