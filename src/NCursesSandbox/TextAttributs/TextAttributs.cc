@@ -1,4 +1,12 @@
 #include "ncurses.h"
+#include<bits/stdc++.h> 
+void bomb(char *msg)
+{
+ endwin();
+ puts(msg);
+ _Exit(1);
+}
+
 int main()
 {
 	initscr(); /* Start curses mode */
@@ -6,6 +14,10 @@ int main()
     addstr("Twinkle, twinkle little star\n");
     attron(A_BLINK);
     addstr("Bliniking\n");
+    if(start_color() != OK)
+        bomb("Unable to start colors.\n");
+    printw("NCurses reports that you can use %d colors,\n",COLORS);
+    printw("and %d color pairs.",COLOR_PAIRS);
 /*	 printw("Upper left corner "); addch(ACS_ULCORNER); printw("\n");
 	 printw("Lower left corner "); addch(ACS_LLCORNER); printw("\n");
 	 printw("Lower right corner "); addch(ACS_LRCORNER); printw("\n");
@@ -43,3 +55,4 @@ int main()
 	endwin(); /* End curses mode */
 	return 0;
 }
+
