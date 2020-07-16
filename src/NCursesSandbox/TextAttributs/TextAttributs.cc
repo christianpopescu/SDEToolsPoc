@@ -18,6 +18,9 @@ int main()
         bomb("Unable to start colors.\n");
     printw("NCurses reports that you can use %d colors,\n",COLORS);
     printw("and %d color pairs.",COLOR_PAIRS);
+    int x,y;
+    getmaxyx(stdscr,y,x);
+    printw("Window size is %d rows, %d columns.\n",y,x);
 /*	 printw("Upper left corner "); addch(ACS_ULCORNER); printw("\n");
 	 printw("Lower left corner "); addch(ACS_LLCORNER); printw("\n");
 	 printw("Lower right corner "); addch(ACS_LRCORNER); printw("\n");
