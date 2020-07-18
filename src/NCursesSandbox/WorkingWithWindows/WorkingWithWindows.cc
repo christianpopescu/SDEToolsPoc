@@ -16,11 +16,11 @@ int main()
     addstr("Bliniking\n");
     if(start_color() != OK)
         bomb("Unable to start colors.\n");
-    printw("NCurses reports that you can use %d colors,\n",COLORS);
-    printw("and %d color pairs.",COLOR_PAIRS);
+//   printw("NCurses reports that you can use %d colors,\n",COLORS);
+//    printw("and %d color pairs.",COLOR_PAIRS);
     int x,y;
     getmaxyx(stdscr,y,x);
-    printw("Window size is %d rows, %d columns.\n",y,x);
+//    printw("Window size is %d rows, %d columns.\n",y,x);
 	start_color();
     init_pair(1,COLOR_WHITE,COLOR_BLUE);
     bkgd(COLOR_PAIR(1)); 
@@ -46,6 +46,33 @@ int main()
     addch('*');
     refresh();
     napms(500);
+    
+    move(10,10);     
+    addch('*');
+    refresh();
+    napms(500);
+    
+    move(15,15); /* LR corner */    
+    addch('*');
+    refresh();
+    napms(500);
+    
+    for (int i=0; i< std::min(x/2,y/2) ; ++i)
+   {
+       int j=i+1;
+        mvaddch(i*2+1,j,'+');
+//        printw(" i = %d ",i);
+
+        refresh();
+        napms(500);
+    }
+        mvaddch(1,1,'-');
+        refresh();
+        napms(500);
+        mvaddch(2,2,'-');
+        refresh();
+        napms(500);
+
 	getch(); /* Wait for user input */
 	endwin(); /* End curses mode */
 	return 0;
