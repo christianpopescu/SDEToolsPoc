@@ -25,6 +25,27 @@ int main()
     init_pair(1,COLOR_WHITE,COLOR_BLUE);
     bkgd(COLOR_PAIR(1)); 
 	refresh(); /* Print it on to the real screen */
+    x--;
+    y--;
+    move(0,0); /* UL corner */
+    addch('*');
+    refresh();
+    napms(500); /* pause half a sec. */
+    
+    move(0,x); /* UR corner */
+    addch('*');
+    refresh();
+    napms(500);
+
+    move(y,0); /* LL corner */
+    addch('*');
+    refresh();
+    napms(500);
+    
+    move(y,x); /* LR corner */    
+    addch('*');
+    refresh();
+    napms(500);
 	getch(); /* Wait for user input */
 	endwin(); /* End curses mode */
 	return 0;
