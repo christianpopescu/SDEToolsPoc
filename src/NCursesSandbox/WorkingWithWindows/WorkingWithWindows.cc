@@ -82,7 +82,11 @@ int main()
    move(0,0); /* Setup the cursor */
    clrtoeol(); /* clear to the end of line */
    refresh();
-
+   
+   move(15,15);
+   clrtobot();
+   refresh();
+    napms(500);
 	getch(); /* Wait for user input */
 	endwin(); /* End curses mode */
 	return 0;
