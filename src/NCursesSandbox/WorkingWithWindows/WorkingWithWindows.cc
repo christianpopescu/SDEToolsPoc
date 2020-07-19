@@ -6,6 +6,7 @@ void bomb(char *msg)
  puts(msg);
  _Exit(1);
 }
+void ShowCurrentCursorPostion();
 
 int main()
 {
@@ -61,7 +62,8 @@ int main()
    {
        int j=i+1;
 //        mvaddch(i*2+1,j,'+');
-        mvaddch(5-j,j,'+');
+        mvaddch(j,j,'+');
+        ShowCurrentCursorPostion();
 
 //        printw(" i = %d ",i);
 
@@ -69,18 +71,25 @@ int main()
         napms(500);
     }
         mvaddch(1,1,'-');
+        ShowCurrentCursorPostion();
         refresh();
         napms(500);
         mvaddch(2,2,'-');
+        ShowCurrentCursorPostion();
         refresh();
         napms(500);
     
-    int row, col;
-    getyx(stdscr,row,col);
-    move(10,10);
-    printw("Cursor position is %d rows, %d columns.\n",y,x);
+    
+
 	getch(); /* Wait for user input */
 	endwin(); /* End curses mode */
 	return 0;
 }
 
+void ShowCurrentCursorPostion()
+{
+    int row, col;
+    getyx(stdscr,row,col);
+    move(20,20);
+    printw("Cursor position is row: %d , colum: %d",row,col);
+}
