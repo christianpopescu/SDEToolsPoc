@@ -16,11 +16,11 @@ int main()
     addstr("Bliniking\n");
     if(start_color() != OK)
         bomb("Unable to start colors.\n");
-//   printw("NCurses reports that you can use %d colors,\n",COLORS);
+   printw("NCurses reports that you can use %d colors,\n",COLORS);
 //    printw("and %d color pairs.",COLOR_PAIRS);
     int x,y;
     getmaxyx(stdscr,y,x);
-//    printw("Window size is %d rows, %d columns.\n",y,x);
+   printw("Window size is %d rows, %d columns.\n",y,x);
 	start_color();
     init_pair(1,COLOR_WHITE,COLOR_BLUE);
     bkgd(COLOR_PAIR(1)); 
@@ -74,7 +74,11 @@ int main()
         mvaddch(2,2,'-');
         refresh();
         napms(500);
-
+    
+    int row, col;
+    getyx(stdscr,row,col);
+    move(10,10);
+    printw("Cursor position is %d rows, %d columns.\n",y,x);
 	getch(); /* Wait for user input */
 	endwin(); /* End curses mode */
 	return 0;
