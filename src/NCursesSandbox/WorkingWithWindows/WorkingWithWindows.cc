@@ -79,7 +79,9 @@ int main()
         refresh();
         napms(500);
     
-    
+   move(0,0); /* Setup the cursor */
+   clrtoeol(); /* clear to the end of line */
+   refresh();
 
 	getch(); /* Wait for user input */
 	endwin(); /* End curses mode */
