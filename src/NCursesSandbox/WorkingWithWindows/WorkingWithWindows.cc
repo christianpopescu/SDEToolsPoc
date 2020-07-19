@@ -60,7 +60,9 @@ int main()
     for (int i=0; i< std::min(x/2,y/2) ; ++i)
    {
        int j=i+1;
-        mvaddch(i*2+1,j,'+');
+//        mvaddch(i*2+1,j,'+');
+        mvaddch(5-j,j,'+');
+
 //        printw(" i = %d ",i);
 
         refresh();
