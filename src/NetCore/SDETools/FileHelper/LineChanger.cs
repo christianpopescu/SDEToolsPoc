@@ -20,5 +20,7 @@ namespace FileHelper
 
         public abstract string Process(string pLine);
 
+        public abstract void SetParameters(params string[] parameters);
+
     }
 }
