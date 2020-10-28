@@ -16,7 +16,7 @@ namespace FileHelper
         LineChanger(String pIdentificationPattern) 
             => (IdentificationPattern, regIdent) = (pIdentificationPattern, new Regex(IdentificationPattern));
 
-        public bool isLineToProcess(string pLine) => regIdent.IsMatch(pLine);
+        public bool IsLineToProcess(string pLine) => regIdent.IsMatch(pLine);
 
         public abstract string Process(string pLine);
 
