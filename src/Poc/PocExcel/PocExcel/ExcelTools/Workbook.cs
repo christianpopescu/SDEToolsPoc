@@ -21,7 +21,12 @@ namespace PocExcel.ExcelTools
 
         public void Close()
         {
-            _workbook.Close();
+            _workbook.Close(false);
+        }
+
+        public void Save()
+        {
+            _workbook.Save();
         }
 
         public List<Worksheet> WorksheetList
@@ -35,6 +40,12 @@ namespace PocExcel.ExcelTools
                 }
                 return result;
             }
+        }
+
+        public void AddWorksheet(String pWorksheetName)
+        {
+            Excel.Worksheet ews = _workbook.Worksheets.Add();
+            ews.Name = pWorksheetName;
         }
     }
 }

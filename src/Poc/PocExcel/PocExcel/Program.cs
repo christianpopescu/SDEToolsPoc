@@ -16,6 +16,8 @@ namespace PocExcel
             foreach(var w in lw)
             {
                 Console.WriteLine(w.Name + "  " + w.FullName);
+                if (!string.Equals(w.Name, "FirstWorbook.xlsx")) continue;
+                w.AddWorksheet("newWorksheet");
                 var l = w.WorksheetList;
                 foreach(var ws in l)
                 {
@@ -26,8 +28,11 @@ namespace PocExcel
                     for (int r = 1; r <= 5; r++)
                         for (int c = 1; c <= 4; c++)
                             Console.WriteLine("    " + ws.GetCellValue(r, c));
-                    ws.SetCellValue(10, 10, "Test");
+                    ws.SetCellValue(10, 10, "Test2");
+                    ws.SetCellValue(10, 1, "Test2");
+
                     //List<List<string>> lls = ws.GetTable(1, 1, 4, 2);
+                    w.Save();
                     List<List<string>> lls = ws.GetTableType(1, 1, 5, 2);
                     foreach (var row in lls)
                     {
@@ -52,6 +57,8 @@ namespace PocExcel
                 }
                 w.Close();
             }
+
+            Console.Write("Press any key! ");
             Console.ReadKey();
         }
     }
