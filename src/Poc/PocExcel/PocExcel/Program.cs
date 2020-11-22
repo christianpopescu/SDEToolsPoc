@@ -17,7 +17,7 @@ namespace PocExcel
             {
                 Console.WriteLine(w.Name + "  " + w.FullName);
                 if (!string.Equals(w.Name, "FirstWorbook.xlsx")) continue;
-                w.AddWorksheet("newWorksheet");
+                w.AddWorksheet("newWorksheet2");
                 var l = w.WorksheetList;
                 foreach(var ws in l)
                 {

@@ -30,6 +30,8 @@ namespace PocExcel.ExcelTools
         public void SetCellValue(int row, int column, string val)
         {
             _worksheet.Cells[row, column].Value = val ;
+            // test only 
+            _worksheet.Cells[row, column].Characters(Start: 1, Length: 4).Font.FontStyle = "bold";
         }
 
         public  List<List<string>> GetTable(int top, int left, int bottom, int right)
