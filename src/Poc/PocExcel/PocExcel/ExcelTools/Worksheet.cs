@@ -32,7 +32,30 @@ namespace PocExcel.ExcelTools
             _worksheet.Cells[row, column].Value = val ;
         }
 
-        public  List<List<string>> GetTable(int top, int left, int bottom, int right)
+        public void SetCellFontStyle(int row, int column, string pFontStyle, int startChar = 0, int length = 0)
+        {
+            if (startChar > 0 && length > 0)
+            {
+                _worksheet.Cells[row, column].Characters(Start: startChar, Length: length).Font.FontStyle = pFontStyle;
+            }
+            else
+                _worksheet.Cells[row, column].Font.FontStyle = pFontStyle;
+        }
+
+        public void SetCellColor(int row, int column, System.Drawing.Color pColor , int startChar = 0, int length = 0)
+        {
+            if (startChar > 0 && length > 0)
+            {
+                _worksheet.Cells[row, column].Characters(Start: startChar, Length: length).Font.Color 
+                    = System.Drawing.ColorTranslator.ToOle(pColor);
+            }
+            else
+                _worksheet.Cells[row, column].Font.Color
+                    = System.Drawing.ColorTranslator.ToOle(pColor);
+        }
+
+
+        public List<List<string>> GetTable(int top, int left, int bottom, int right)
         {
             var result = new List<List<string>>();
             for (int r = top; r<=bottom; r++) 

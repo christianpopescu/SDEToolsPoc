@@ -42,8 +42,22 @@ namespace PocExcel.ExcelTools
             }
         }
 
-        public void AddWorksheet(String pWorksheetName)
+        public Boolean WorksheetExists(String pName)
         {
+            List<Worksheet> lws = WorksheetList;
+            foreach (var ws in lws)
+                if (string.Equals(pName, ws.Name)) 
+                    return true;
+            return false;
+        }
+
+        public void AddWorksheet(String pWorksheetName, Boolean pOverride = false)
+        {
+            if (WorksheetExists(pWorksheetName))
+                if (pOverride)
+                    ((Excel.Worksheet)_workbook.Worksheets[pWorksheetName]).Delete();
+                else
+                    return;
             Excel.Worksheet ews = _workbook.Worksheets.Add();
             ews.Name = pWorksheetName;
         }

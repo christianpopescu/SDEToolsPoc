@@ -68,5 +68,10 @@ namespace PocExcel.ExcelTools
             }
             return result;
         }
+
+        public void SetDisplayAlerts(Boolean pDisplayalerts)
+        {
+            _excelApplication.DisplayAlerts = pDisplayalerts;
+        }
     }
 }
