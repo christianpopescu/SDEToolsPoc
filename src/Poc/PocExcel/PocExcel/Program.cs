@@ -11,25 +11,49 @@ namespace PocExcel
     {
         static void Main(string[] args)
         {
+            TestExcelUseSimple();
+
+            Console.Write("Press any key! ");
+            Console.ReadKey();
+        }
+
+        private static void TestExcelUseSimple()
+        {
+            MsExcel.GetInstance().Open(@"E:\Temp\ToDelete\FirstWorbook.xlsx");
+            Workbook w = MsExcel.GetInstance().GetOpenWorkbookByName(@"FirstWorbook.xlsx");
+
+            if (w != null)
+                Console.WriteLine(w.WorksheetExists("newWorksheet6"));
+
+            Worksheet ws = w.GetWorksheetByName("newWorksheet6");
+            ws.SetCellValue(10, 20, "toto");
+            MsExcel.GetInstance()
+                .SetDisplayAlerts(false); // TODO: to refactor added to allow delete worksheet when Excel not visible
+            w.Save();
+            w.Close();
+        }
+        private static void TestExcelUse()
+        {
             MsExcel.GetInstance().Open(@"E:\Temp\ToDelete\FirstWorbook.xlsx");
             List<Workbook> lw = MsExcel.GetInstance().GetOpenWorkbooks();
 
-            MsExcel.GetInstance().SetDisplayAlerts(false); // TODO: to refactor added to allow delete worksheet when Excel not visible
-            foreach(var w in lw)
+            MsExcel.GetInstance()
+                .SetDisplayAlerts(false); // TODO: to refactor added to allow delete worksheet when Excel not visible
+            foreach (var w in lw)
             {
                 Console.WriteLine(w.Name + "  " + w.FullName);
                 if (!string.Equals(w.Name, "FirstWorbook.xlsx")) continue;
                 w.AddWorksheet("newWorksheet6", true);
                 var l = w.WorksheetList;
-                foreach(var ws in l)
+                foreach (var ws in l)
                 {
                     Console.WriteLine("  " + ws.Name);
                     Console.WriteLine("   Rows = " + ws.RowsCount);
                     Console.WriteLine("   Columns = " + ws.RowsCount);
 
                     for (int r = 1; r <= 5; r++)
-                        for (int c = 1; c <= 4; c++)
-                            Console.WriteLine("    " + ws.GetCellValue(r, c));
+                    for (int c = 1; c <= 4; c++)
+                        Console.WriteLine("    " + ws.GetCellValue(r, c));
                     ws.SetCellValue(10, 10, "Test2and Test3");
                     ws.SetCellFontStyle(10, 10, "bold", 2, 5);
                     ws.SetCellValue(10, 1, "Test23 and Test24");
@@ -59,14 +83,13 @@ namespace PocExcel
                             else
                                 Console.Write(d.GetType() + " | ");
                         }
+
                         Console.WriteLine();
                     }
                 }
+
                 w.Close();
             }
-
-            Console.Write("Press any key! ");
-            Console.ReadKey();
         }
     }
 }

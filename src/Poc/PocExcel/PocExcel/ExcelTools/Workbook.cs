@@ -51,6 +51,12 @@ namespace PocExcel.ExcelTools
             return false;
         }
 
+        public Worksheet GetWorksheetByName(String pName)
+        {
+            return new Worksheet((Excel.Worksheet)_workbook.Worksheets[pName]);
+        }
+
+
         public void AddWorksheet(String pWorksheetName, Boolean pOverride = false)
         {
             if (WorksheetExists(pWorksheetName))

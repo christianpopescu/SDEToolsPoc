@@ -69,6 +69,13 @@ namespace PocExcel.ExcelTools
             return result;
         }
 
+        public Workbook GetOpenWorkbookByName(string pName)
+        {
+            Workbook result = new Workbook((Excel.Workbook) GetInstance()._excelApplication.Workbooks.Item[pName]);
+            return result;
+
+
+        }
         public void SetDisplayAlerts(Boolean pDisplayalerts)
         {
             _excelApplication.DisplayAlerts = pDisplayalerts;
