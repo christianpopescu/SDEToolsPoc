@@ -67,6 +67,21 @@ namespace PocExcel.ExcelTools
             return result;
         }
 
+        public void SetTable(List<List<String>> pTable, int top, int left)
+        {
+            int currentRow = 0;
+            foreach (var row in pTable)
+            {
+                int currentColumn = 0;
+                foreach (var cell in row)
+                {
+                    _worksheet.Cells[currentRow+top, currentColumn + left].value = cell;
+                    currentColumn++;
+                }
+                currentRow++;
+            }    
+        }
+
         public List<List<string>> GetTableType(int top, int left, int bottom, int right)
         {
             var result = new List<List<string>>();

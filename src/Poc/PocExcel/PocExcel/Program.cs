@@ -11,10 +11,31 @@ namespace PocExcel
     {
         static void Main(string[] args)
         {
-            TestExcelUseSimple();
+            TestAddList();
 
             Console.Write("Press any key! ");
             Console.ReadKey();
+        }
+
+        private static void TestAddList()
+        {
+            MsExcel.GetInstance().Open(@"E:\Temp\ToDelete\FirstWorbook.xlsx");
+            Workbook w = MsExcel.GetInstance().GetOpenWorkbookByName(@"FirstWorbook.xlsx");
+            w.AddWorksheet("TestWs");
+            List<List<string>> lls = new List<List<string>>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                var ls = new List<string>();
+                for (int j = 0; j < 20; j++)
+                    ls.Add((i + j).ToString());
+                lls.Add(ls);
+            }
+
+            Worksheet ws = w.GetWorksheetByName("TestWs");
+            ws.SetTable(lls, 5, 3);
+            w.Save();
+            w.Close();
         }
 
         private static void TestExcelUseSimple()
