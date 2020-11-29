@@ -6,7 +6,9 @@ namespace SDEToolsConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            FilesAndFoldersTest.TestEnumeration();
+            Console.Write("Pres any key!");
+            Console.ReadKey();
         }
     }
 }

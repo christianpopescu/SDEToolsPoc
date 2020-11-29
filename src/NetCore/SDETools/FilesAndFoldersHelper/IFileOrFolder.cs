@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Interface use to implement Composite Pattern
+/// </summary>
+
 namespace fr.vadc.FilesAndFoldersHelper
 {
     public interface IFileOrFolder<T>
