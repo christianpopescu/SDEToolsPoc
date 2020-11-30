@@ -34,5 +34,24 @@ namespace SDEToolsConsole
                 Console.WriteLine(file +" | " + Path.GetFileName(file) + " | " + Path.GetFullPath(file));
 
         }
+
+        public static void TestRecursiveEnumeration()
+        {
+            FolderRecursiveEnumeration(@"E:\Temp\TempToDelete", 0);
+        }
+
+        private static void FolderRecursiveEnumeration(String path, int level)
+        {
+            String prefix = new string(' ', level * 2);
+            Console.WriteLine(prefix + "Enumerate Directories");
+            foreach (var dir in Directory.EnumerateDirectories(path))
+                Console.WriteLine(prefix+dir + " | " + Path.GetDirectoryName(dir) + " | " + Path.GetFullPath(dir));
+            Console.WriteLine(prefix + "Enumerate Files");
+            foreach (var file in Directory.EnumerateFiles(path))
+                Console.WriteLine(prefix + file + " | " + Path.GetFileName(file) + " | " + Path.GetFullPath(file));
+            foreach (var dir in Directory.EnumerateDirectories(path))
+                FolderRecursiveEnumeration(dir, level+1);
+
+        }
     }
 }
