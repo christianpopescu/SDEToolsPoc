@@ -43,12 +43,10 @@ namespace SDEToolsConsole
         private static void FolderRecursiveEnumeration(String path, int level)
         {
             String prefix = new string(' ', level * 2);
-            Console.WriteLine(prefix + "Enumerate Directories");
             foreach (var dir in Directory.EnumerateDirectories(path))
-                Console.WriteLine(prefix+dir + " | " + Path.GetDirectoryName(dir) + " | " + Path.GetFullPath(dir));
-            Console.WriteLine(prefix + "Enumerate Files");
+                Console.WriteLine(prefix + "Directory:" +  dir + " | " + Path.GetFileName(dir) + " | " + Path.GetDirectoryName(dir));
             foreach (var file in Directory.EnumerateFiles(path))
-                Console.WriteLine(prefix + file + " | " + Path.GetFileName(file) + " | " + Path.GetFullPath(file));
+                Console.WriteLine(prefix + "File:" + file + " | " + Path.GetFileName(file) + " | " + Path.GetDirectoryName(file));
             foreach (var dir in Directory.EnumerateDirectories(path))
                 FolderRecursiveEnumeration(dir, level+1);
 
