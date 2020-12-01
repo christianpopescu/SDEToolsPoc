@@ -8,11 +8,13 @@ namespace fr.vadc.FilesAndFoldersHelper
 {
     public class File : IFileOrFolder
     {
-        public string FullName { get; set; }
+        public string FullName { get; private set; }
+
+        public readonly List<IFileOrFolder> Content = new List<IFileOrFolder>(); 
 
         protected File(){}
 
-        public static File CreateFile(String pFullName)
+        public static File ConstructFile(String pFullName)
         {
             return new File() {FullName = pFullName};
         }

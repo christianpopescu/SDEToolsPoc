@@ -8,6 +8,6 @@ namespace fr.vadc.FilesAndFoldersHelper
 {
     public interface IFileOrFolder
     {
-        public String FullName { get; set; }
+        public String FullName { get;  }
     }
 }
