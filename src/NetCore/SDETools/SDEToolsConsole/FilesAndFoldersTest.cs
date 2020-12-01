@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using fr.vadc.FilesAndFoldersHelper;
+using fafh = fr.vadc.FilesAndFoldersHelper;
 
 namespace SDEToolsConsole
 {
@@ -61,5 +62,31 @@ namespace SDEToolsConsole
             foreach (var fof in list)
                 Console.WriteLine($" {Path.GetFileName(fof.FullName)}");
         }
+
+        public static void UseFilesAndFoldersHelper_GetMultipleFiles()
+        {
+            FileAndFolderService ffs = new FileAndFolderService();
+            List<IFileOrFolder> list = ffs.GetListOfFilesAndFolders(@"F:\CCP_library",
+                ElementSelection.file);
+
+            list.Sort(fafh.File.CompareFileByName);
+
+            int countduplicates = 0;
+
+            for (int i = 1; i < list.Count; i++)
+            {
+                if (Path.GetFileName(list[i - 1].FullName) == Path.GetFileName(list[i].FullName))
+                {
+                    Console.WriteLine(list[i-1].FullName);
+                    Console.WriteLine(list[i].FullName);
+                    countduplicates++;
+                }
+            }
+
+            Console.WriteLine(countduplicates);
+
+
+        }
+
     }
 }
