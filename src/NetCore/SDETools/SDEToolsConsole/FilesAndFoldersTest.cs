@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using fr.vadc.FilesAndFoldersHelper;
 
 namespace SDEToolsConsole
 {
@@ -50,6 +51,14 @@ namespace SDEToolsConsole
             foreach (var dir in Directory.EnumerateDirectories(path))
                 FolderRecursiveEnumeration(dir, level+1);
 
+        }
+
+        public static void UseFilesAndFoldersHelper_Enumerate()
+        {
+            FileAndFolderService ffs = new FileAndFolderService();
+            List<IFileOrFolder> list = ffs.GetListOfFilesAndFolders(@"E:\Temp\TempToDelete");
+            foreach (var fof in list)
+                Console.WriteLine($" {Path.GetFileName(fof.FullName)}");
         }
     }
 }

@@ -6,7 +6,7 @@ namespace SDEToolsConsole
     {
         static void Main(string[] args)
         {
-            FilesAndFoldersTest.TestRecursiveEnumeration();
+            FilesAndFoldersTest.UseFilesAndFoldersHelper_Enumerate();
             Console.Write("Pres any key!");
             Console.ReadKey();
         }
