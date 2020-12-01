@@ -15,23 +15,25 @@ namespace fr.vadc.FilesAndFoldersHelper
     {
         protected  List<IFileOrFolder> result = new List<IFileOrFolder>();
 
-        public List<IFileOrFolder> GetListOfFilesAndFolders(string path)
+        public List<IFileOrFolder> GetListOfFilesAndFolders(string path, ElementSelection pSelection)
         {
             if (!Directory.Exists(path))
                 throw( new DirectoryNotFoundException(path));
             result = new List<IFileOrFolder>();
-            FolderRecursiveEnumeration(path);
+            FolderRecursiveEnumeration(path, pSelection);
             return result;
         }
 
-        private void FolderRecursiveEnumeration(String path)
+        private void FolderRecursiveEnumeration(String path, ElementSelection pSelection)
         {
+            if (pSelection.HasFlag(ElementSelection.folder))
+                foreach (var dir in Directory.EnumerateDirectories(path))
+                    result.Add(Folder.ConstructFolder(dir));
+            if (pSelection.HasFlag(ElementSelection.file))
+                foreach (var file in Directory.EnumerateFiles(path))
+                    result.Add(File.ConstructFile(file));
             foreach (var dir in Directory.EnumerateDirectories(path))
-                result.Add(Folder.ConstructFolder(dir));
-            foreach (var file in Directory.EnumerateFiles(path))
-                result.Add(File.ConstructFile(file));
-            foreach (var dir in Directory.EnumerateDirectories(path))
-                FolderRecursiveEnumeration(dir);
+                FolderRecursiveEnumeration(dir, pSelection);
 
         }
 

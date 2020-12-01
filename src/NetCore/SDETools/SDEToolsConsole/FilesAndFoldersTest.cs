@@ -56,7 +56,8 @@ namespace SDEToolsConsole
         public static void UseFilesAndFoldersHelper_Enumerate()
         {
             FileAndFolderService ffs = new FileAndFolderService();
-            List<IFileOrFolder> list = ffs.GetListOfFilesAndFolders(@"E:\Temp\TempToDelete");
+            List<IFileOrFolder> list = ffs.GetListOfFilesAndFolders(@"E:\Temp\TempToDelete",
+                ElementSelection.file );
             foreach (var fof in list)
                 Console.WriteLine($" {Path.GetFileName(fof.FullName)}");
         }
