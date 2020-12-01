@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace fr.vadc.FilesAndFoldersHelper
 {
-    public class File : IFileOrFolder
+    public class FileWithData<T> : IFileOrFolderWithData<T>
     {
+        public string Name { get; set; }
         public string FullName { get; set; }
-
-        protected File(){}
-
-        public static File CreateFile(String pFullName)
-        {
-            return new File() {FullName = pFullName};
-        }
+        public T Data { get; set; }
     }
 }

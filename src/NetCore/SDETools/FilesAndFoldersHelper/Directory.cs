@@ -11,6 +11,6 @@ namespace fr.vadc.FilesAndFoldersHelper
     /// </summary>
     public class Directory<T>
     {
-        public Folder<T> Root { get; set; }
+        public FolderWithData<T> Root { get; set; }
     }
 }
