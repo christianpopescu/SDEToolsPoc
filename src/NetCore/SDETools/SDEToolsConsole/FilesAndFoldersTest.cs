@@ -69,7 +69,7 @@ namespace SDEToolsConsole
             List<IFileOrFolder> list = ffs.GetListOfFilesAndFolders(@"F:\CCP_library",
                 ElementSelection.file);
 
-            list.Sort(fafh.File.CompareFileByName);
+            list.Sort(fafh.File.CompareByName);
 
             int countduplicates = 0;
 

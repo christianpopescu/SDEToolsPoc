@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace fr.vadc.FilesAndFoldersHelper
 {
-    public class Folder : IFileOrFolder
+    public class Folder : AbstractFileOrFolder
     {
-         public string FullName { get; private set; }
-
-         protected Folder() {}
+        public readonly List<AbstractFileOrFolder> Content = new List<AbstractFileOrFolder>();
+        
+        protected Folder() {}
 
          public static Folder ConstructFolder(string pFullName)
          {

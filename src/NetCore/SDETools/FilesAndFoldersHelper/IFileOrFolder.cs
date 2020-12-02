@@ -9,5 +9,10 @@ namespace fr.vadc.FilesAndFoldersHelper
     public interface IFileOrFolder
     {
         public String FullName { get;  }
+
+        public String Name { get; }
+
+        public String DirectoryName { get; }
+
     }
 }

@@ -6,19 +6,9 @@ using System.Threading.Tasks;
 
 namespace fr.vadc.FilesAndFoldersHelper
 {
-    public class FolderWithData<T> : IFileOrFolderWithData<T>
+    public class FolderWithData<T> : AbstractFileOrFolderWithData<T>
     {
-        public string Name { get; set; }
-        public string FullName { get; set; }
-        public T Data { get; set; }
-
-        public List<IFileOrFolderWithData<T>> Content = new List<IFileOrFolderWithData<T>>();
-
-        public FolderWithData(String pName, String pFullName)
-        {
-            Name = pName;
-            FullName = pFullName;
-        }
+        public List<AbstractFileOrFolderWithData<T>> Content = new List<AbstractFileOrFolderWithData<T>>();
 
     }
 }
