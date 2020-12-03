@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,30 @@ namespace fr.vadc.AbstractDataHelper.Collections
             };
         }
 
+        public void WriteToFile(string pFile)
+        {
+            // todo: add file exception + choose append or override
+            using var output = new StreamWriter(pFile);
+            {
+                foreach (var elem in TheList)
+                {
+                    output.WriteLine(ToLine(elem));
+                }
+            }
+        }
 
+        public void ReadFromFile(string pFile)
+        {
+            // todo: add file exception + choose append or override
+            using var input = File.OpenText(pFile);
+            {
+                string line;
+                while (null != (line = input.ReadLine()))
+                {
+                    TheList.Add(FromLine(line));
+                }
+
+            }
+        }
     }
 }

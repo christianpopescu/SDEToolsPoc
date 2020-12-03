@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AbstractDataHelper\AbstractDataHelper.csproj" />
     <ProjectReference Include="..\FilesAndFoldersHelper\FilesAndFoldersHelper.csproj" />
   </ItemGroup>
 
