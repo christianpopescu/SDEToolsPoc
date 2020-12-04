@@ -6,8 +6,8 @@ namespace SDEToolsConsole
     {
         static void Main(string[] args)
         {
-            //FilesAndFoldersTest.UseFilesAndFoldersHelper_GetMultipleFiles();
-            AbstractDataHelperTest.ReadWriteList();
+            FilesAndFoldersTest.UseFilesAndFoldersHelper_GetMultipleFiles_action();
+            //AbstractDataHelperTest.ReadWriteList();
             Console.Write("Press any key!");
             Console.ReadKey();
         }

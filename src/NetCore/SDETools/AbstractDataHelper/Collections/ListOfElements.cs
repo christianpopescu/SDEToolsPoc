@@ -24,6 +24,8 @@ namespace fr.vadc.AbstractDataHelper.Collections
         protected Func<T, string> ToLine;
         protected Func<string, T> FromLine;
 
+        protected ListOfElements(){} 
+
         public static ListOfElements<T> CreateListOfElements<T> (Func<T, string> pToLine, Func<string, T>pFromLine)
         {
             return new ListOfElements<T>()

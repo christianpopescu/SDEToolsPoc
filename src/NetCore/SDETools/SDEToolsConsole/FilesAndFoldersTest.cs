@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using fr.vadc.FilesAndFoldersHelper;
 using fafh = fr.vadc.FilesAndFoldersHelper;
+using fr.vadc.AbstractDataHelper.Collections;
 
 namespace SDEToolsConsole
 {
@@ -85,6 +86,34 @@ namespace SDEToolsConsole
 
             Console.WriteLine(countduplicates);
 
+
+        }
+
+
+        public static void UseFilesAndFoldersHelper_GetMultipleFiles_action()
+        {
+            ListOfElements<string> loes =
+                ListOfElements<string>.CreateListOfElements<string>((x) => x, (x) => x);
+            FileAndFolderService ffs = new FileAndFolderService();
+            List<IFileOrFolder> list = ffs.GetListOfFilesAndFolders(@"F:\CCP_library",
+                ElementSelection.file);
+
+            list.Sort(fafh.File.CompareByName);
+
+            int countduplicates = 0;
+
+            for (int i = 1; i < list.Count; i++)
+            {
+                if (Path.GetFileName(list[i - 1].FullName) == Path.GetFileName(list[i].FullName))
+                {
+                    loes.TheList.Add(list[i - 1].FullName);
+                    loes.TheList.Add(list[i].FullName);
+                    countduplicates++;
+                }
+            }
+
+            Console.WriteLine(countduplicates);
+            loes.WriteToFile(@"E:\Temp\ToDelete\duplicates.txt");
 
         }
 
