@@ -98,9 +98,9 @@ namespace SDEToolsConsole
             List<IFileOrFolder> list = ffs.GetListOfFilesAndFolders(@"F:\CCP_library",
                 ElementSelection.file);
 
-            list.Sort(fafh.File.CompareByName);
+            list.Sort(fafh.File.CompareByNameAndDirectory);
 
-            int countduplicates = 0;
+            int countDuplicates = 0;
 
             for (int i = 1; i < list.Count; i++)
             {
@@ -108,12 +108,12 @@ namespace SDEToolsConsole
                 {
                     loes.TheList.Add(list[i - 1].FullName);
                     loes.TheList.Add(list[i].FullName);
-                    countduplicates++;
+                    countDuplicates++;
                 }
             }
 
-            Console.WriteLine(countduplicates);
-            loes.WriteToFile(@"E:\Temp\ToDelete\duplicates.txt");
+            Console.WriteLine(countDuplicates);
+            loes.WriteToFile(@"E:\Temp\ToDelete\duplicates_new.txt");
 
         }
 
