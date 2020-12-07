@@ -1,33 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using fr.vadc.FilesAndFoldersHelper;
 using fafh = fr.vadc.FilesAndFoldersHelper;
 using fr.vadc.AbstractDataHelper.Collections;
 
 namespace SDEToolsConsole
 {
-    public class FilesAndFoldersTest
+    public static  class FilesAndFoldersTest
     {
-        public static void TestDirectoryMethods()
+        public static void TestDirectoryMethods(string pPathToDirctory, string pPathToFile, string pPathToNothing)
         {
-            String pathToDirctory = @"E:\Temp\TempToDelete";
-            String pathToFile = @"E:\Temp\TempToDelete\input.txt";
-            String pathToNothing = @"E:\Temp\TempToDelete\inputxyz.txt";
-
-            Console.WriteLine(Directory.Exists(pathToDirctory));
-            Console.WriteLine(Directory.Exists(pathToFile));
-            Console.WriteLine(Directory.Exists(pathToNothing));
+            Console.WriteLine(Directory.Exists(pPathToDirctory));
+            Console.WriteLine(Directory.Exists(pPathToFile));
+            Console.WriteLine(Directory.Exists(pPathToNothing));
 
         }
         public static void TestEnumeration()
         {
             String pathToDirctory = @"E:\Temp\TempToDelete";
-            String pathToFile = @"E:\Temp\TempToDelete\input.txt";
-            String pathToNothing = @"E:\Temp\TempToDelete\inputxyz.txt";
 
             Console.WriteLine("Enumerate Directories");
             foreach (var dir in Directory.EnumerateDirectories(pathToDirctory))
@@ -90,12 +81,12 @@ namespace SDEToolsConsole
         }
 
 
-        public static void UseFilesAndFoldersHelper_GetMultipleFiles_action()
+        public static void UseFilesAndFoldersHelper_GetMultipleFiles_action(string pRootFolder, string pOutputResult)
         {
             ListOfElements<string> loes =
                 ListOfElements<string>.CreateListOfElements<string>((x) => x, (x) => x);
             FileAndFolderService ffs = new FileAndFolderService();
-            List<IFileOrFolder> list = ffs.GetListOfFilesAndFolders(@"F:\CCP_library",
+            List<IFileOrFolder> list = ffs.GetListOfFilesAndFolders(pRootFolder,
                 ElementSelection.file);
 
             list.Sort(fafh.File.CompareByNameAndDirectory);
@@ -113,7 +104,7 @@ namespace SDEToolsConsole
             }
 
             Console.WriteLine(countDuplicates);
-            loes.WriteToFile(@"E:\Temp\ToDelete\duplicates_new.txt");
+            loes.WriteToFile(pOutputResult);
 
         }
 
