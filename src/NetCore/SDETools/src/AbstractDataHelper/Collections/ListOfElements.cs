@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using fr.vadc.AbstractDataHelper.Exceptions;
 
 namespace fr.vadc.AbstractDataHelper.Collections
 {
@@ -28,7 +29,10 @@ namespace fr.vadc.AbstractDataHelper.Collections
 
         public static ListOfElements<T> CreateListOfElements<T> (Func<T, string> pToLine, Func<string, T>pFromLine)
         {
-            return new ListOfElements<T>()
+            if (pToLine == null || pFromLine == null)
+                throw new CollectionsException("Create List of Elements null delegates");
+
+            return new ListOfElements<T>
             {
                 ToLine = pToLine, FromLine = pFromLine
 
