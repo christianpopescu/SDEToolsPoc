@@ -8,11 +8,11 @@ namespace SDEToolsServer
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            log4net.Config.XmlConfigurator.Configure();
-            ThreadContext.Stacks["NDC"].Push("Main function");
-            log.Info("----- SDEToolsServer - Started! ------");
+            Application.Application app = new Application.Application();
+
+            return app.Run();
 
 
         }
