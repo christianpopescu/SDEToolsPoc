@@ -29,6 +29,9 @@
     <ClInclude Include="PocExcel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PocOutllook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PocOfficeInteropCppCli.cpp">
@@ -41,6 +44,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PocExcel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PocOutllook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
