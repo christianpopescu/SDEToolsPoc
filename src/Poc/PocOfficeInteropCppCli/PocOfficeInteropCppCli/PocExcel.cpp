@@ -21,3 +21,21 @@ void PocExcel::ShowExcelSheetName()
 	wrkbk->Close();
 	app->Quit();
 }
+
+vector<vector<String^>>^ PocExcel::GetTableFromFirstSheet(String^ workbook)
+{
+	vector<vector<String^>>^ result = gcnew vector<vector<String^>>();
+	Excel::Application^ app = gcnew Excel::ApplicationClass();
+	Workbooks^ wrkbk = app->Workbooks;
+	wrkbk->Open(workbook, Type::Missing, Type::Missing, Type::Missing, Type::Missing,
+		Type::Missing, Type::Missing, Type::Missing, Type::Missing, Type::Missing, Type::Missing,
+		Type::Missing, Type::Missing, Type::Missing, Type::Missing);
+	Worksheet^ wrksheet = static_cast<Worksheet^>(wrkbk[1]->Worksheets[1]);
+	Range^ range = wrksheet->Cells->Find("*", System::Reflection::Missing::Value,
+		System::Reflection::Missing::Value, System::Reflection::Missing::Value,
+		Excel::XlSearchOrder::xlByRows, Excel::XlSearchDirection::xlPrevious,
+		false, System::Reflection::Missing::Value, System::Reflection::Missing::Value).Row;
+	wrkbk->Close();
+	app->Quit();
+	return result;
+}
