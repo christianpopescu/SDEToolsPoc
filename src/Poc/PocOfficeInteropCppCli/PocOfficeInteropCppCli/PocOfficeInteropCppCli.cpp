@@ -14,7 +14,14 @@ int main(array<System::String ^> ^args)
 	std::cin >> c;
 	switch (c) {
 	case '1':
+	{
 		PocExcel::ShowExcelSheetName();
+		IEnumerable<String^>^ v = PocExcel::GetTableFromFirstSheet("D:\\Temp\\TestWorkbook1.xlsx");
+		for each (auto x in v)
+		{
+			System::Console::WriteLine(x);
+		}
+	}
 		break;
 	case '2':
 		PocOutllook::ShowFolderList();

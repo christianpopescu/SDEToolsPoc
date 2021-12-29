@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "PocExcel.h"
-#include <msclr\marshal_cppstd.h>
+
 
 #include <iostream>
 
@@ -13,7 +13,7 @@ void PocExcel::ShowExcelSheetName()
 {
 	Excel::Application^ app = gcnew Excel::ApplicationClass();
 	Workbooks^ wrkbk = app->Workbooks;
-	wrkbk->Open("E:\\Temp\\TestWorkbook.xlsx", Type::Missing, Type::Missing, Type::Missing, Type::Missing,
+	wrkbk->Open("D:\\Temp\\TestWorkbook.xlsx", Type::Missing, Type::Missing, Type::Missing, Type::Missing,
 		Type::Missing, Type::Missing, Type::Missing, Type::Missing, Type::Missing, Type::Missing,
 		Type::Missing, Type::Missing, Type::Missing, Type::Missing);
 	std::cout << msclr::interop::marshal_as<std::string>((wrkbk[1]->Name)) << std::endl;
@@ -22,20 +22,26 @@ void PocExcel::ShowExcelSheetName()
 	app->Quit();
 }
 
-vector<vector<String^>>^ PocExcel::GetTableFromFirstSheet(String^ workbook)
+IEnumerable<String^>^ PocExcel::GetTableFromFirstSheet(String^ workbook)
 {
-	vector<vector<String^>>^ result = gcnew vector<vector<String^>>();
+	vector<String^>^ result = gcnew vector<String^>();
 	Excel::Application^ app = gcnew Excel::ApplicationClass();
 	Workbooks^ wrkbk = app->Workbooks;
 	wrkbk->Open(workbook, Type::Missing, Type::Missing, Type::Missing, Type::Missing,
 		Type::Missing, Type::Missing, Type::Missing, Type::Missing, Type::Missing, Type::Missing,
 		Type::Missing, Type::Missing, Type::Missing, Type::Missing);
 	Worksheet^ wrksheet = static_cast<Worksheet^>(wrkbk[1]->Worksheets[1]);
-	Range^ range = wrksheet->Cells->Find("*", System::Reflection::Missing::Value,
+	int lastRow =  wrksheet->Cells->Find("*", System::Reflection::Missing::Value,
 		System::Reflection::Missing::Value, System::Reflection::Missing::Value,
 		Excel::XlSearchOrder::xlByRows, Excel::XlSearchDirection::xlPrevious,
-		false, System::Reflection::Missing::Value, System::Reflection::Missing::Value).Row;
+		false, System::Reflection::Missing::Value, System::Reflection::Missing::Value)->Row; 
+	for (int i = 1; i <= lastRow; ++i)
+	{
+		Range^ r = static_cast<Range^>(wrksheet->Cells[i,1]); 
+		result->push_back(static_cast<String^>(r->Text));
+
+	}
 	wrkbk->Close();
 	app->Quit();
-	return result;
+	return  result;
 }
