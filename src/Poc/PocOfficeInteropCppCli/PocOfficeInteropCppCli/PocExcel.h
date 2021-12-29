@@ -9,6 +9,7 @@ ref class PocExcel
 {
 public:
 	static void ShowExcelSheetName();
-	static  IEnumerable<String^>^ GetTableFromFirstSheet(String^ workbook);
+	static  IEnumerable<String^>^ GetColumnFromFirstSheet(String^ workbook);
+	static  IEnumerable<IEnumerable<String^>^>^ GetTableFromFirstSheet(String^ workbook);
 };
 

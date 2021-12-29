@@ -16,10 +16,19 @@ int main(array<System::String ^> ^args)
 	case '1':
 	{
 		PocExcel::ShowExcelSheetName();
-		IEnumerable<String^>^ v = PocExcel::GetTableFromFirstSheet("D:\\Temp\\TestWorkbook1.xlsx");
+		IEnumerable<String^>^ v = PocExcel::GetColumnFromFirstSheet("D:\\Temp\\TestWorkbook1.xlsx");
 		for each (auto x in v)
 		{
 			System::Console::WriteLine(x);
+		}
+		IEnumerable<IEnumerable<String^>^>^ t = PocExcel::GetTableFromFirstSheet("D:\\Temp\\TestWorkbook1.xlsx");
+		for each (auto line in t)
+		{
+			for each (auto column in line)
+			{
+				System::Console::Write(column + " | ");
+			}
+			System::Console::WriteLine(" ||");
 		}
 	}
 		break;
