@@ -1,0 +1,21 @@
+= SDE Repository documentation
+Doc Writer <christian.popescu@outlook.com>
+v 1.0, 2023-01-08
+:sectnums:
+:toc:
+:toclevels: 5
+:pdf-page-size: A3
+
+== File helper
+
+/src/NetCore/SDETools/src/FileHelper
+
+=== LineChanger class
+
+-> identify lines to change
+
+-> process lines and produce new line. Better idea rename the method as transform.
+
+=== TextFileChanger
+Use a LineChanger class to change lines.
+
